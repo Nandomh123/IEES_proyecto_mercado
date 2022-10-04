@@ -1,0 +1,10 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Base Legal}
+\label{chp_baselegal}
+\vspace{-4em} 
+\section{Resolución del Consejo Directivo No. C.D. 472 }
+\begin{displayquote}
+{\bf DISPOSICIONES TRANSITORIAS.-}
+
+{\bf TERCERA.-} La Dirección Actuarial y de Investigación preparará los estudios correspondientes para establecer las reservas que cubran las contingencias de los créditos hipotecarios que se encuentran en administración del IESS, hasta la cancelación total de los mismos. Una vez deducida la reserva calculada por la Dirección Actuarial y de Investigación, de existir superávit, se destinara para financiar programas del Seguro General de Salud Individual y Familiar.
+\end{displayquote}

@@ -1,0 +1,90 @@
+%---------------------------------------------------------------------------------------------------
+% template document
+\documentclass[12pt, a4paper, twoside, openright]{book}
+\input{\Sexpr{REP_style}}
+
+%---------------------------------------------------------------------------------------------------
+\SetWatermarkText{\Sexpr{REP_watermark}}
+\SetWatermarkScale{0.4}
+%\SetWatermarkText{}
+%\SetWatermarkScale{0.40}
+%\SetWatermarkColor[cmyk]{0, 0, 0, 0.15}
+
+
+% \newcommand\BGfrom[1]{%
+% \AddEverypageHook{%
+%   \ifnum\value{page}>\numexpr#1-1\relax
+%     \backgroundsetup{
+% angle=-20,
+% %position={0.68\textwidth,-.68\textheight},%
+% position={10.8cm,-16.9cm},%
+% contents={\includegraphics[scale=0.07]{graficos/sumilla_actuario.png}}
+%     }%
+%   \fi
+%   \BgMaterial%
+%   }%
+% }
+% \BGfrom{3}
+
+
+% Bibliografía -------------------------------------------------------------------------------------
+\addbibresource{\Sexpr{REP_bib_lib}}
+\addbibresource{\Sexpr{REP_bib_art}}
+\addbibresource{\Sexpr{REP_bib_ley}}
+
+%---------------------------------------------------------------------------------------------------
+% Inicio del documento
+\begin{document}
+
+
+%---------------------------------------------------------------------------------------------------
+\frontmatter
+% Contenidos
+<<cap01, child='01_cobertura.Rnw'>>=
+@
+
+<<cap02, child='02_contenido.Rnw'>>=
+@
+
+%---------------------------------------------------------------------------------------------------
+% Cuerpo del estudio
+\mainmatter
+
+% <<cap03, child='03_resumen_ejecutivo.Rnw'>>=
+%  @
+  
+<<cap04, child='04_antecedentes.Rnw'>>=
+@
+
+<<cap05, child='05_base_legal.Rnw'>>=
+@
+
+<<cap06, child='06_objetivo.Rnw'>>=
+@
+
+<<cap07, child='07_metodologia.Rnw'>>=
+@
+
+<<cap08, child='08_resultados.Rnw'>>=
+@
+
+<<cap09, child='09_conclusiones.Rnw'>>=
+@
+
+<<cap10, child='10_recomendaciones.Rnw'>>=
+@
+
+<<cap11, child='11_opinion_actuarial.Rnw'>>=
+@
+
+%---------------------------------------------------------------------------------------------------
+%Acrónimos
+
+%---------------------------------------------------------------------------------------------------
+% \backmatter
+% \pagestyle{repheadstyle}
+% Bibliografía
+% \chapter{Bibliografía}
+% \printbibliography[heading = none]
+
+\end{document}

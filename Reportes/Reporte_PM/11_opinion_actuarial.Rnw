@@ -1,0 +1,18 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Opinión actuarial}
+\vspace{-4em} 
+
+Del presente informe es responsabilidad del Director Actuarial, de Investigación y Estadística.
+
+Quito, \Sexpr{REP_fec_dia_corre} de \Sexpr{REP_fec_mes_corre_l} de \Sexpr{REP_fec_anio_corre} \\
+
+
+\vspace{2cm}
+Atentamente,
+\vspace{1cm}
+
+\begin{center}
+\textbf{Ramiro Vega Suárez, Lic.} \\
+Director Actuarial, de Investigación y Estadística \\
+Instituto Ecuatoriano de Seguridad Social
+\end{center}

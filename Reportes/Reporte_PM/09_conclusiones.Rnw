@@ -1,0 +1,10 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Conclusiones}
+\label{chp_conclusion}
+\vspace{-4em} 
+
+\begin{enumerate}
+\item El saldo pendiente de los créditos administrados por el IESS es de USD 319.400, y el valor a cubrir por siniestros pendientes de cancelación es de USD 578.576.
+\item La mayor parte de los créditos hipotecarios administrados por el IESS se encuentran en mora, estos representan el 64\% del total de 14 créditos. En estos se encuentra el 81\% del saldo pendiente, esto es USD 139.989.
+\item Existe un monto a cubrir por el seguro de desgravamen que asciende al valor de USD \Sexpr{REP$reserva_fija}.
+\end{enumerate}

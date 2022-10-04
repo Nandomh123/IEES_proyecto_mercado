@@ -1,0 +1,9 @@
+%---------------------------------------------------------------------------------------------------
+\chapter[Antecedentes]{Antecedentes}
+\label{chap_Antecedentes}
+\vspace{-4em} 
+\begin{itemize}
+\item Mediante memorando Nro. IESS-DNGF-2022-0988-M de 24 de mayo de 2022 la Dirección Nacional de Gestión Financiera informa y solicita: \textit{<<Con el objetivo de mantener actualizado el registro de la reserva que cubran las contingencias de los créditos hipotecarios que se encuentran en administración del IESS, hasta la cancelación total de los mismos, me permito gentilmente solicitar que se actualice el “INFORME TECNICO PARA ESTABLECER LAS RESERVAS PARA PRESTAMOS HIPOTECARIOS ADMINISTRADOS POR EL IESS” el mismo que fue remitido a esta Dirección Nacional con Memorando Nro. IESS-DAI-2017-0287-M de fecha 20 de febrero de 2017[...]>>}.
+\item Con memorando Nro. IESS-DAIE-2022-0452-M de 25 de mayo de 2022 la Dirección Actuarial, de Investigación y Estadística realiza el pedido de información correspondiente a los créditos hipotecários que se encuentran administrados por el IESS.
+\item La Dirección Nacional de Gestión Financiera remite la información solicitada, anexada al memorando Nro. IESS-DNGF-2022-1277-M de 05 de julio de 2022.
+\end{itemize}

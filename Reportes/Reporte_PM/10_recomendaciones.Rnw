@@ -1,0 +1,4 @@
+\chapter{Recomendaciones}
+\label{chp_recomendaciones}
+\vspace{-4em} 
+Con base en los resultados obtenidos en el presente estudio, se recomienda mantener una reserva de al menos USD \Sexpr{REP$reserva_total} para hacer frente a las contingencias de los créditos hipotecarios administrados por el IESS.

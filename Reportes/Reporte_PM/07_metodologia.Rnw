@@ -1,0 +1,31 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Metodología}
+\label{chp_modelo}
+\vspace{-4em} 
+La reserva que cubra las contingencias de los créditos hipotecarios se determina como la diferencia entre el saldo a la fecha corte y la reserva matemática que cubra las cuotas hasta la fecha final del crédito.
+
+La reserva matemática que garantizará el pago de las cuotas, representa el valor actual a prima neta única de una anualidad ordinaria contingente temporal, de una unidad monetaria, pagadera durante $n$ años por persona de edad $x$:
+\begin{equation}
+\label{axn}
+\ax{x:\angln} = \sum_{k=1}^{n} \frac{l_{x+k}}{l_x}\left( \frac{1+j}{1+i} \right)^{k},
+\end{equation}
+donde: $j$ es la tasa de inflación anual, $i$ es la tasa de interés actuarial, $n$ es el número de años que faltan para finalizar el crédito.
+
+En términos de valores conmutados la ecuación \ref{axn} queda expresada de la siguiente manera:
+\begin{equation}
+\label{axn2}
+\ax{x:\angln} = \frac{N_x-N_{x+n}}{D_x},
+\end{equation}
+
+El valor de la reserva se determina multiplicando el coeficiente de valor unitario de la reserva por el valor de la cuota anual. La sumatoria de los valores actuales de la reserva sería el valor actual actuarial para el pago del crédito hasta su finalización.
+
+\begin{equation}
+\text{Valor de la reserva} = \ax{x:\angln} \cdot C_x.
+\end{equation}
+Siendo $\ax{x:\angln}$ el valor unitario de la reserva de acuerdo a la edad $x$; $C_{x,k}$ es la cuota anual del crédito $k$ cuyo titular tiene edad $x$. Con esta notación tenemos:
+
+\begin{equation}
+\text{Valor total de la reserva} = \sum_{k=1}^{N} \ax{x:\angln} \cdot C_{x,k},
+\end{equation}
+
+donde $N$ es el número total de créditos.

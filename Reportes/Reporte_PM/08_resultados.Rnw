@@ -1,0 +1,185 @@
+%-------------------------------------------------------------------------------
+\definecolor{skyblue6}{rgb}{0.8000000, 0.9019608, 1.0000000}
+
+\chapter{Resultados}
+\label{chp_resultados}
+\vspace{-4em} 
+\section{Créditos hipotecarios}
+De acuerdo a los datos recibidos, existen 14 créditos que se encuentran administrados por el IESS, que se encuentran agrupados por su año de concesión en la tabla \ref{tab:iess_creditos_anual}. El monto total solicitado de estos créditos es de USD \Sexpr{REP$monto}, de los cuales a la fecha existe un saldo pendiente de USD\Sexpr{REP$saldo}. 
+
+% \begin{table}[H]
+% \captionsetup{justification=centering}
+% \begin{center}
+% \caption{Créditos Anuales}
+% \label{tab:iess_creditos_anual}
+% {\fontsize{10}{12}\selectfont
+% \begin{tabular}{ccrr}
+% \toprule
+%       \rowcolor{skyblue6}
+%       \multicolumn{1}{l !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Año de}}  &       
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Número de}}  &
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Monto}}  &  
+%       \bf{Saldo}\\
+%       \rowcolor{skyblue6}
+%       \multicolumn{1}{l !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Conseción}}  &       
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Créditos }}  &
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}}  &  
+%       \bf{}\\  
+% \midrule
+% \input{tablas/iess_creditos_anual.tex}
+% \bottomrule
+% \end{tabular}
+% }
+% \caption*{\scriptsize {\bf Fuente:} Dirección Nacional de Gestión Financiera. \\
+% {\bf Elaborado:} DAIE}
+% \end{center}
+% \end{table}
+% 
+% En el gráfico \ref{fig:iess_creditos} se observa el número de créditos por año de concesión y por el año de finalización del mismo; la mayoría finaliza en el año 2025, y en el año 2028 el último de los créditos.
+% 
+% 
+% 
+% \begin{figure}[H]
+% \centering
+% \captionsetup{justification=centering}
+% \caption{Créditos por año de concesión y año de finalización.}
+% \label{fig:iess_creditos}
+% \includegraphics[scale = .4 ]{graficos/iess_creditos.png}
+% \caption*{\scriptsize {\bf Fuente:} Dirección Nacional de Gestión Financiera. \\
+%   {\bf Elaborado:} DAIE.}
+% \end{figure}
+% 
+% En la tabla \ref{tab:iess_creditos_persona} se puede observar de manera detallada cada unos de los créditos; así, se tiene que en el año 2028 finaliza el último crédito administrado por el IESS, que a la fecha de corte la edad promedio de los titulares de los créditos es de \Sexpr{REP$edad_pro} años.
+% 
+% \begin{table}[H]
+% \captionsetup{justification=centering}
+% \begin{center}
+% \caption{Créditos por persona}
+% \label{tab:iess_creditos_persona}
+% {\fontsize{10}{12}\selectfont
+% \begin{tabular}{cccrrcrr}
+% \toprule\rowcolor{skyblue6}
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Número}} & 
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Año de }} & 
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Año final}}  &  
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Monto}}  &  
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Saldo}}  &  
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Edad}} &  
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Días de }} & 
+%       \bf{Tipo de }\\ \rowcolor{skyblue6}
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}} & 
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Concesión}} & 
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}}  &  
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}}  &  
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}}  &  
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}} &  
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Mora}} & 
+%       \bf{Afiliado}\\
+% \midrule
+% \input{tablas/iess_creditos_persona.tex}
+% \bottomrule
+% \end{tabular}
+% }
+% \caption*{\scriptsize {\bf Fuente:} Dirección Nacional de Gestión Financiera. \\
+% {\bf Elaborado:} DAIE}
+% \end{center}
+% \end{table}
+% El porcentaje de créditos vigentes es de \Sexpr{REP$vigente}\% y de vigentes en mora \Sexpr{REP$vigentemora}\%, adicional existe un crédito cuyo titular falleció. Del saldo pendiente, el 19\% se encuentra en créditos vigentes y el 81\% en créditos vigentes en mora, estos y otros datos se puede observar en la tabla \ref{tab:estado_credito_hip}.
+% 
+% 
+% \begin{table}[H]
+% \captionsetup{justification=centering}
+% \begin{center}
+% \caption{Estado del Crédito}
+% \label{tab:estado_credito_hip}
+% {\fontsize{10}{12}\selectfont
+% \begin{tabular}{lccrr}
+% \toprule
+%       \rowcolor{skyblue6}
+%       \multicolumn{1}{l !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Estado del Crédito}} &
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Número de}} &
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Porcentaje de}} &
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Saldo}} & 
+%       \bf{Porcentaje de }\\
+%       \rowcolor{skyblue6}
+%       \multicolumn{1}{l !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}} &
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Créditos}} &
+%       \multicolumn{1}{r !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{Créditos (\%)}} &
+%       \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%       {\cellcolor{skyblue6}\color{black}\textbf{}} & 
+%       \bf{Saldo (\%)}\\
+% \midrule
+% \input{tablas/estado_credito_hip.tex}
+% \bottomrule
+% \end{tabular}
+% }
+% \caption*{\scriptsize {\bf Fuente:} Dirección Nacional de Gestión Financiera. \\
+% {\bf Elaborado:} DAIE}
+% \end{center}
+% \end{table}
+% 
+% 
+% 
+% De acuerdo a los datos, existen siniestros que tienen derecho a la cobertura pero aún no se realiza la cancelación respectiva. El resumen de estos créditos lo tenemos en la tabla \ref{tab:credito_saldo_hip}.
+% 
+% \begin{table}[H]
+% \captionsetup{justification=centering}
+% \begin{center}
+% \caption{Créditos y saldo}
+% \label{tab:credito_saldo_hip}
+% {\fontsize{10}{12}\selectfont
+% \begin{tabular}{cr}
+% \toprule
+%         \rowcolor{skyblue6}
+%         \multicolumn{1}{c !{\arrayrulewidth 1.5pt\color{white} \vline}}
+%         {\cellcolor{skyblue6}\color{black}\textbf{Número de Créditos}}  &
+%         \bf{Saldo a Cubrir} \\
+% \midrule
+% \input{tablas/credito_saldo_hip.tex}
+% \bottomrule
+% \end{tabular}
+% }
+% \caption*{\scriptsize {\bf Fuente:} Dirección Nacional de Gestión Financiera. \\
+% {\bf Elaborado:} DAIE}
+% \end{center}
+% \end{table}
+
+
+\section{Reserva}
+
+El saldo por cubrir descrito en la tabla \ref{tab:credito_saldo_hip}, por el valor de USD \Sexpr{REP$saldo_biess}, es una parte fija de la reserva, junto con el saldo del afiliado fallecido presentado la tabla \ref{tab:iess_creditos_persona}, por el valor de USD \Sexpr{REP$saldo_fallecido}. En total, la parte fija de la reserva a calcular corresponde a USD \Sexpr{REP$reserva_fija}.
+
+La parte de la reserva que se calcula en el presente estudio, corresponde a los créditos administrados por el IESS cuyo tipo de afiliado no se encuentra fallecido a la fecha de corte, independiente de si el crédito se encuentra en estado \textit{vigente} o \textit{vigente con mora}.
+
+La parte actuarial de la reserva corresponde al valor de USD \Sexpr{REP$reserva_variable}. Así, la reserva total es de USD \Sexpr{REP$reserva_total}.
+
+
+
+
