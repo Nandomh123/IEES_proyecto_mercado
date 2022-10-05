@@ -1,62 +1,53 @@
 message( paste( rep('-', 100 ), collapse = '' ) )
-message( '\tAnalisis demografico' )
+message( '\tAnalisis del sueldo de las egresados de la EPN' )
 
-# Lectura datos BIESS
-load( paste0( parametros$RData, 'IESS_HIP_anexos.RData' ) )
-gc() 
+# --------------------------------------------------------------------------------------------------
+# Cargamos la base de datos del registro civil y la base de los egresados de la EPN
+# --------------------------------------------------------------------------------------------------
+load(paste0( parametros$RData, 'IESS_Reg_Civil.RData' ))
+load(paste0( parametros$RData, 'Egresados.RData'))
+gc()
 
+# Transformamos a mayusculas el nombre
+Egresados[ , `NOMBRES Y APELLIDOS`:= toupper(`NOMBRES Y APELLIDOS`) ]
 
+# Eliminamos las tildes de los nombres y apellidos
+tildes_a_latex <- function(xtb_aux) {
+  xtb_aux <- data.frame(lapply(xtb_aux, function(x) { if(is.character(x)) gsub("Á", "A", x, fixed = TRUE) else x }))
+  xtb_aux <- data.frame(lapply(xtb_aux, function(x) { if(is.character(x)) gsub("É", "E", x, fixed = TRUE) else x }))
+  xtb_aux <- data.frame(lapply(xtb_aux, function(x) { if(is.character(x)) gsub("Í", "I", x, fixed = TRUE) else x }))
+  xtb_aux <- data.frame(lapply(xtb_aux, function(x) { if(is.character(x)) gsub("Ó", "O", x, fixed = TRUE) else x }))
+  xtb_aux <- data.frame(lapply(xtb_aux, function(x) { if(is.character(x)) gsub("Ú", "U", x, fixed = TRUE) else x }))
+  xtb_aux <- xtable(xtb_aux)
+  return(xtb_aux)
+}
+Egresados <- as.data.table(tildes_a_latex(Egresados))
+setnames(Egresados, c('nombre','carrera','universidad'))
+Egresados[ carrera == "Matemática", carrera := "MATEMATICA"]
+Egresados[ carrera == "Ingeniería Matemática", carrera := "INGENIERIA MATEMATICA"]
+Egresados[ carrera == "Matemática Aplicada", carrera := "MATEMATICA APLICADA"]
 
-#### Tabla1
-anexo1$Anio_Concesion <- as.numeric(str_sub(anexo1$FECHA_CONCESION, start = 1L, end = 4L))
-anexo1$Mes_Concesion <- as.numeric(str_sub(anexo1$FECHA_CONCESION, start = 5L, end = 7L))
-anexo1$Anios_Plazo <- anexo1$`PLAZO_CREDITO (MESES)`/12
-anexo1$Anio_Fin <- as.numeric(anexo1$Anio_Concesion + anexo1$Anios_Plazo)
-anexo1$Mes_Fin <- anexo1$Mes_Concesion
+# Intersección  base del Registro civil
+Egresados <- as.data.frame(Egresados)
+Egresados_sueldos <- left_join( Egresados, rc, all.x = TRUE, by = "nombre" )
 
-tabla1 <- anexo1[ , .(Numero_Creditos = uniqueN(NUMERO_CEDULA), Monto = sum(MONTO_CREDITO), Sueldo = sum(SALDO_CAPITAL) ), 
-                by = c('Anio_Concesion') ]
+# Duplicados por nombre
+Egresados_dupli <- as.data.table(Egresados_sueldos)
+Egresados_dupli <- Egresados_dupli[ , .N, by = c( 'nombre' )]
 
-
-#### Tabla2 
-tabla2 <- anexo1
-tabla2[, DC := 1 ]
-tabla2[, date := as.Date( paste ( Anio_Concesion, Mes_Concesion, DC, sep = "/") ) ]
-tabla2[, date1 := as.Date( paste ( Anio_Fin, Mes_Fin, DC, sep = "/") ) ]
-tabla2[, Edad := 2022 - year( FECHA_NACIMIENTO ) ]
-tabla2[ , A_C := as.character(year( date )) ]
-tabla2[ , A_F := as.character(year( date1 )) ]
-tabla2 <- tabla2[ , list(Numero = c(1:14),
-                         Anio_Concesion = A_C,
-                         Anio_Final = A_F,
-                         Monto = MONTO_CREDITO,
-                         Saldo = SALDO_CAPITAL,
-                         Edad = Edad,
-                         Dias_Mora = DIAS_MORA,
-                         Tipo_afiliado = `ESTADO ACTUAL` ) ]
-#### Tabla3
-tabla3 <- anexo1[ , .(Numero_Creditos = uniqueN(NUMERO_CEDULA),Sueldo = sum(SALDO_CAPITAL) ),
-                  by = c('ESTADO_CREDITO') ]
-
-tabla3[, Porcentaje_Cred := (tabla3$Numero_Creditos/nrow(anexo1))*100]
-tabla3[, Porcentaje_Sueldo := (tabla3$Sueldo/sum(Sueldo))*100]
-tabla3 <- tabla3[ , .(ESTADO_CREDITO,
-                      Numero_Creditos,
-                      Porcentaje_Cred,
-                      Sueldo,
-                      Porcentaje_Sueldo)]
-
-
-#### Tabla4 
-tabla4 <- anexo2
-tabla4 <- tabla4[ , .(Numero_Creditos = uniqueN(IDENTIFICACION), Saldo_Cubrir = sum(`SALDO A CUBRR`))]
-
-
+# Analisis para ver que persona que tienen el mismo nombre se graduo en la EPN
+Egresados_sueldos <- as.data.table(Egresados_sueldos)
+persona1 <- Egresados_sueldos[nombre == "GONZALEZ VALLEJO CARLOS LUIS"]
+Egresados_sueldos <- Egresados_sueldos[!(cedula == '0915389753' & nombre == "GONZALEZ VALLEJO CARLOS LUIS")]
+persona2 <- Egresados_sueldos[nombre == "ORTIZ LOPEZ DIEGO FERNANDO"]
+Egresados_sueldos <- Egresados_sueldos[!(cedula == '0401316682' & nombre == "ORTIZ LOPEZ DIEGO FERNANDO")]
+persona3 <- Egresados_sueldos[nombre == "ORTIZ CASTRO JONATHAN ALEJANDRO" ]
+Egresados_sueldos <- Egresados_sueldos[!(cedula == '0926191990' & nombre == "ORTIZ CASTRO JONATHAN ALEJANDRO")]
 
 # Guarda resultados ----
-lista <- c("tabla1","tabla2","tabla3","tabla4")
+lista <- c("Egresados_sueldos")
 save( list =  lista,
-      file = paste0( parametros$RData, 'IESS_HIP_demografia.RData' ) )
+      file = paste0( parametros$RData, 'IESS_PM_Egresados_sueldos.RData' ) )
 message( paste( rep('-', 100 ), collapse = '' ) )
 rm( list = ls()[ !( ls() %in% c( 'parametros' ) ) ] )
 gc() 
