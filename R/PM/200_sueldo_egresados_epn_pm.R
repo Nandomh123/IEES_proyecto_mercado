@@ -29,7 +29,8 @@ Egresados[ carrera == "Matemática Aplicada", carrera := "MATEMATICA APLICADA"]
 
 # Intersección  base del Registro civil
 Egresados <- as.data.frame(Egresados)
-Egresados_sueldos <- left_join( Egresados, rc, all.x = TRUE, by = "nombre" )
+Egresados_sueldos <- left_join( Egresados, rc, by = "nombre" )
+
 
 # Duplicados por nombre
 Egresados_dupli <- as.data.table(Egresados_sueldos)
@@ -43,6 +44,14 @@ persona2 <- Egresados_sueldos[nombre == "ORTIZ LOPEZ DIEGO FERNANDO"]
 Egresados_sueldos <- Egresados_sueldos[!(cedula == '0401316682' & nombre == "ORTIZ LOPEZ DIEGO FERNANDO")]
 persona3 <- Egresados_sueldos[nombre == "ORTIZ CASTRO JONATHAN ALEJANDRO" ]
 Egresados_sueldos <- Egresados_sueldos[!(cedula == '0926191990' & nombre == "ORTIZ CASTRO JONATHAN ALEJANDRO")]
+
+# Guardamos en un archivo de excel
+write.xlsx(Egresados_sueldos, "Egresados_sueldos.xlsx")
+
+# Solo los nombres y numero de cédula
+Egresados_cedula_nombre <- Egresados_sueldos[ , list(cedula, nombre)]
+write.xlsx(Egresados_cedula_nombre, "Egresados_cedula_nombre.xlsx")
+
 
 # Guarda resultados ----
 lista <- c("Egresados_sueldos")

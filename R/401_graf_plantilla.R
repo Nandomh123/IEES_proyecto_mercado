@@ -13,7 +13,7 @@ graf_line_size <- 0.6
 graf_grid_major_size <- 0.25
 graf_grid_minor_size <- 0.20
 graf_width <- 16
-graf_height <- 9
+graf_height <- 11
 graf_units <- 'cm'
 graf_dpi <- 300
 

@@ -26,9 +26,5 @@
 Resultados/*
 RData/*
 Data/*
-Documentacion/*
 .Rprofile
 Drivers/*
-.Rdata
-.httr-oauth
-.DS_Store

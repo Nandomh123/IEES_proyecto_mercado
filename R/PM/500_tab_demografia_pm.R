@@ -1,104 +1,81 @@
 message( paste( rep('-', 100 ), collapse = '' ) )
-message( '\tDemografia creditos hipotecarios' )
+message( '\tNumero de egresados de la EPN por edad y sexo' )
+load( paste0( parametros$RData, 'n_per_edad_sexo.RData' )) 
+load( paste0( parametros$RData, 'egresados_epn.RData'))
 
-load( file = paste0( parametros$RData, 'IESS_HIP_demografia.RData' ) )
 
-# Creditos anuales ----
-aux <- copy( tabla1 )
-aux[, Anio_Concesion := as.character( Anio_Concesion ) ]
+# --------------------------------------------------------------------------------------------------
+# Primera forma 
+# --------------------------------------------------------------------------------------------------
 
-aux_xtable <- xtable( aux, digits = c(rep(0,5)) )
+# Número de egresados por sexo y edad ----
+aux <- copy( n_per_sexo_edad )
+aux_xtable <- xtable(aux, digits = c( 0, 0, 0, 2, 0 , 2, 0, 2) )
 print( aux_xtable,
-       file = paste0( parametros$resultado_tablas, 'iess_creditos_anual', '.tex' ),
+       file = paste0( parametros$resultado_tablas, 'n_per_sexo_edad', '.tex' ),
        type = 'latex',
        include.colnames = FALSE,
        include.rownames = FALSE,
        format.args = list( decimal.mark = ',', big.mark = '.' ),
        only.contents = TRUE,
-       hline.after = NULL,
-       sanitize.text.function = identity )
-
-# Créditos por persona ----
-
-aux1 <- copy( tabla2 )
-aux1[, Anio_Concesion := as.character( Anio_Concesion ) ]
-aux1[, Anio_Final := as.character( Anio_Final ) ]
-
-aux_xtable1 <- xtable( aux1, digits = c(rep(0,9)) )
-print( aux_xtable1,
-       file = paste0( parametros$resultado_tablas, 'iess_creditos_persona', '.tex' ),
-       type = 'latex',
-       include.colnames = FALSE,
-       include.rownames = FALSE,
-       format.args = list( decimal.mark = ',', big.mark = '.' ),
-       only.contents = TRUE,
-       hline.after = NULL,
+       hline.after = 7,
        sanitize.text.function = identity )
 
 
-# Estado de Créditos  ----
+# --------------------------------------------------------------------------------------------------
+# Segunda Forma
+# --------------------------------------------------------------------------------------------------
 
-aux2 <- copy( tabla3 )
-aux2[, ESTADO_CREDITO := as.character( ESTADO_CREDITO ) ]
+# Número de egresados por sexo y edad ----
+cortes_monto <-c(0,24, 29, 33, 37, 41, 46, 50)
+etiquetas <- c(paste0("$[$", formatC( c(20, 24, 29, 33, 37, 41, 46),
+                                   digits = 0, format = 'f', big.mark = '.', 
+                                   decimal.mark = ',' ),
+                      ",",formatC( c(24, 29, 33, 37, 41, 46, 50),
+                                   digits = 0, format = 'f', big.mark = '.', 
+                                   decimal.mark = ',' ),
+                      "]"))
+aux <- data.frame(Egresados_EPN)
+aux <- aux %>%
+        mutate(y_b = year(fecha_nacimiento),
+               m_b = month(fecha_nacimiento),
+               edad = ( 2022 -  y_b  - 1 + 1 * ( 3 > m_b  ) )) %>%
+        distinct(cedula,.keep_all = TRUE) %>%
+        mutate(rango = cut(edad, breaks = cortes_monto,
+                               labels = etiquetas,
+                               right = TRUE)) %>%
+        group_by(sexo, rango) %>%
+        mutate(Personas = n()) %>%
+        ungroup() %>%
+        mutate(dist=Personas/n()) %>%
+        distinct(sexo,rango,.keep_all = TRUE) %>%
+        select(sexo,Personas,rango,dist) %>%
+        arrange(rango,sexo)
 
-aux_xtable2 <- xtable( aux2, digits = c(rep(0,6)) )
-print( aux_xtable2,
-       file = paste0( parametros$resultado_tablas, 'estado_credito_hip', '.tex' ),
+auxa <- spread(select(aux,-dist),sexo,value = c(Personas)) %>%
+        select(rango,M_ben := M, F_ben := F)
+auxb <- spread(select(aux,-Personas),sexo,value = c(dist)) %>%
+        select(rango,M_dist:= M,F_dist:= F)
+
+aux<-left_join(auxa,auxb,by='rango') %>%
+        select(rango,M_ben,M_dist,F_ben,F_dist) %>%
+        mutate(M_dist=100*M_dist,
+               F_dist=100*F_dist,
+               rango=as.character(rango))
+
+aux[is.na(aux)] <- 0
+aux <- rbind((aux), c("Total", as.character(colSums(aux[,2:ncol(aux)]))))
+aux[2:ncol(aux)] <- lapply(aux[2:ncol(aux)], function(x) as.numeric(x))
+aux <- aux %>% mutate(T_ben=M_ben+F_ben,
+                      T_dist=M_dist+F_dist)
+
+aux_xtable <- xtable( aux, digits = c( 0, 0, 0, 2, 0 , 2, 0, 2) )
+print( aux_xtable,
+       file = paste0( parametros$resultado_tablas, 'iess_edades_dist_rtr', '.tex' ),
        type = 'latex',
        include.colnames = FALSE,
        include.rownames = FALSE,
        format.args = list( decimal.mark = ',', big.mark = '.' ),
        only.contents = TRUE,
-       hline.after = NULL,
+       hline.after = 7,
        sanitize.text.function = identity)
-
-# Credito y Saldo  ----
-
-aux3 <- copy( tabla4 )
-
-aux_xtable3 <- xtable( aux3, digits = c(rep(0,3)) )
-print( aux_xtable3,
-       file = paste0( parametros$resultado_tablas, 'credito_saldo_hip', '.tex' ),
-       type = 'latex',
-       include.colnames = FALSE,
-       include.rownames = FALSE,
-       format.args = list( decimal.mark = ',', big.mark = '.' ),
-       only.contents = TRUE,
-       hline.after = NULL,
-       sanitize.text.function = identity )
-
-########################################################
-
-# 
-# \definecolor{skyblue2}{rgb}{0.94, 0.97, 1}
-# 
-# \begin{table}[H]
-# \captionsetup{justification=centering}
-# \begin{center}
-# \caption{Créditos y saldo}
-# \label{tab:credito_saldo_hip}
-# {\fontsize{10}{12}\selectfont
-#         \multicolsep
-#         \begingroup
-#         \setlenght\aboverulesep{}
-#         \setlenght\belowrulesep{}
-#         \begin{tabular}{cr}
-#         \toprule
-#         \rowcolor{skyblue2}
-#         Número de Créditos  &  Saldo a Cubrir \\
-#         \midrule
-#         \input{tablas/credito_saldo_hip.tex}
-#         \bottomrule
-#         \end{tabular}
-#         \endgroup
-# }
-# \caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
-#         {\bf Elaborado:} DAIE}
-# \end{center}
-# \end{table}
-
-
-# ------------------------------------------------------------------------------
-message( paste( rep('-', 100 ), collapse = '' ) )
-rm( list = ls()[ !( ls() %in% c( 'parametros' ) ) ] )
-gc()

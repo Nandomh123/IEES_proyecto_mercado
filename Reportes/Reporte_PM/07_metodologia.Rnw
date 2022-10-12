@@ -1,7 +1,70 @@
 %---------------------------------------------------------------------------------------------------
 \chapter{Metodología}
 \label{chp_modelo}
-\vspace{-4em} 
+\vspace{-4em}
+
+
+\section{Prueba de las tablas y los graficos creados}
+
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Distribución de los egresados de la EPN hasta el 31 de marzo de 2022}
+\label{fig:iess_pir_egresados}
+\includegraphics[scale=1]{graficos/iess_pir_egresados.png}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+            {\bf Elaborado:} DAIE.}
+\end{figure}
+
+\subsection{Primera forma de las tablas}
+
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Egresados de la EPN hasta el 31 de marzo de 2022}
+\label{tab:n_per_sexo_edad}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{lrrrrrr}
+\toprule
+\multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
+\cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
+& {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} \\
+\midrule
+\input{tablas/n_per_sexo_edad.tex}
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+{\bf Elaborado:} DAIE}
+\end{center}
+\end{table}
+
+
+\subsection{Usando la plantilla Pablo}
+
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Egresados de la EPN hasta el 31 de marzo de 2022}
+\label{tab:iess_edades_dist_rtr}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{lrrrrrr}
+\toprule
+\multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
+\cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
+& {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} \\
+\midrule
+\input{tablas/iess_edades_dist_rtr.tex}
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+{\bf Elaborado:} DAIE}
+\end{center}
+\end{table}
+
+
 La reserva que cubra las contingencias de los créditos hipotecarios se determina como la diferencia entre el saldo a la fecha corte y la reserva matemática que cubra las cuotas hasta la fecha final del crédito.
 
 La reserva matemática que garantizará el pago de las cuotas, representa el valor actual a prima neta única de una anualidad ordinaria contingente temporal, de una unidad monetaria, pagadera durante $n$ años por persona de edad $x$:
