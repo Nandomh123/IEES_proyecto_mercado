@@ -1,7 +1,8 @@
 message( paste( rep('-', 100 ), collapse = '' ) )
 message( '\tNumero de egresados de la EPN por edad y sexo' )
-load( paste0( parametros$RData, 'n_per_edad_sexo.RData' )) 
-load( paste0( parametros$RData, 'egresados_epn.RData'))
+
+load( paste0( parametros$RData, 'Tablas_egresados.RData' ) ) 
+load( paste0( parametros$RData, 'IESS_PM_infor_egresados.RData' ) )
 
 
 # --------------------------------------------------------------------------------------------------

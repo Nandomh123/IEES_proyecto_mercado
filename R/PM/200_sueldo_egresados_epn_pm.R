@@ -4,8 +4,8 @@ message( '\tAnalisis del sueldo de las egresados de la EPN' )
 # --------------------------------------------------------------------------------------------------
 # Cargamos la base de datos del registro civil y la base de los egresados de la EPN
 # --------------------------------------------------------------------------------------------------
-load(paste0( parametros$RData, 'IESS_Reg_Civil.RData' ))
-load(paste0( parametros$RData, 'Egresados.RData'))
+load( paste0( parametros$RData, 'IESS_Reg_Civil.RData' ) )
+load( paste0( parametros$RData, 'IESS_PM_Egresados_epn.RData' ) )
 gc()
 
 # Transformamos a mayusculas el nombre
@@ -56,7 +56,7 @@ write.xlsx(Egresados_cedula_nombre, "Egresados_cedula_nombre.xlsx")
 # Guarda resultados ----
 lista <- c("Egresados_sueldos")
 save( list =  lista,
-      file = paste0( parametros$RData, 'IESS_PM_Egresados_sueldos.RData' ) )
+      file = paste0( parametros$RData, 'IESS_PM_Datos_Egresados_epn.RData' ) )
 message( paste( rep('-', 100 ), collapse = '' ) )
 rm( list = ls()[ !( ls() %in% c( 'parametros' ) ) ] )
 gc() 

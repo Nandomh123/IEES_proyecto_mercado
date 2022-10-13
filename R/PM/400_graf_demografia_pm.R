@@ -5,7 +5,7 @@ message( '\tGraficando demografia 2009-2018' )
 source( 'R/401_graf_plantilla.R', encoding = 'UTF-8', echo = FALSE )
 
 # Cargamos nuetra base de datos
-load( paste0( parametros$RData, 'Egresados_EPN.RData' ) )
+load( paste0( parametros$RData, 'IESS_PM_infor_egresados.RData' ) )
 
 # Graficando población egresada por edad y sexo de la EPN --------------------------
 message( '\tGraficando población egresada por edad y sexos de la EPN' )

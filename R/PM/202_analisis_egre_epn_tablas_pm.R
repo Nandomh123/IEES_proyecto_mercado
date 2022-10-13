@@ -1,12 +1,12 @@
 message( paste( rep('-', 100 ), collapse = '' ) )
-message( '\tAnalisis de los egresados de la EPN' )
+message( '\t Datos de la piramide poblacional de los egresados por edad y sexo' )
 
 # --------------------------------------------------------------------------------------------------
 # Cargamos la base de datos completas de los egresados de la EPN
 # --------------------------------------------------------------------------------------------------
-load( paste0( parametros$RData, 'Egresados_EPN.RData' ))
+load( paste0( parametros$RData, 'IESS_PM_infor_egresados.RData' ))
 
-# Tabla de rangos del numero de egresados por edad y sexo
+# Tabla de rangos del número de egresados por edad y sexo
 n_egre_male <- piramide_edad_sexo[ sexo == "M"]
 n_egre_male[ edad <= 24, R_edad := '$[21,24]$' ]
 n_egre_male[ edad <= 29 & edad >= 25, R_edad := '$[25,29]$' ]
@@ -50,12 +50,24 @@ n_per_sexo_edad[, Prom_Total := Prom_Total*100]
 
 rm(n_egre_male, n_egre_female)
 
+
+# Tabla de rangos del numero de aportes de los egresados por edad y sexo
+Datos_egresados <- as.data.frame(Datos_egresados)
+egresados_impo <- as.data.frame(egresados_impo)
+n_imp_sexo_edad <- left_join( Datos_egresados, egresados_impo, all.x = TRUE, 
+                              by = c("cedula") )
+
+# n_imp_sexo_edad <- as.data.table(n_imp_sexo_edad)
+# numero_imposiciones <- Egresados_EPN[ , list( N = .N), by = "cedula"]
+
+
+
 # --------------------------------------------------------------------------------------------------
 # Guardamos en un RData
 # --------------------------------------------------------------------------------------------------
 resultados <- c( "n_per_sexo_edad" )
 save( list =  resultados
-      , file = paste0( parametros$RData, 'n_per_edad_sexo.RData' ) )
+      , file = paste0( parametros$RData, 'Tablas_egresados.RData' ) )
 
 # --------------------------------------------------------------------------------------------------
 message( paste( rep('-', 100 ), collapse = '' ) )
