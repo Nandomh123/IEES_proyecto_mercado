@@ -80,3 +80,17 @@ print( aux_xtable,
        only.contents = TRUE,
        hline.after = 7,
        sanitize.text.function = identity)
+
+
+# Número de imposiciones de los egresados por sexo y edad ----
+aux <- copy( n_imp_sexo_edad )
+aux_xtable <- xtable(aux, digits = c( 0, 0, 0, 2, 0 , 2, 0, 2) )
+print( aux_xtable,
+       file = paste0( parametros$resultado_tablas, 'n_imp_sexo_edad', '.tex' ),
+       type = 'latex',
+       include.colnames = FALSE,
+       include.rownames = FALSE,
+       format.args = list( decimal.mark = ',', big.mark = '.' ),
+       only.contents = TRUE,
+       hline.after = 8,
+       sanitize.text.function = identity )

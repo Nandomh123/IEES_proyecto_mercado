@@ -14,7 +14,7 @@ egresados_epn <- as.data.table( read_excel( file,
 
 
 egresados_impo <- as.data.table( read_excel( file, 
-                                             sheet = 1,
+                                             sheet = 3,
                                              skip = 0,
                                              col_names = TRUE ))
 
