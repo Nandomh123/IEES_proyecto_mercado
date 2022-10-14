@@ -28,7 +28,7 @@ en la tabla \ref{tab:n_per_sexo_edad}
 \caption{Egresados de la EPN hasta el 31 de marzo de 2022}
 \label{tab:n_per_sexo_edad}
 {\fontsize{10}{12}\selectfont
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{crrrrrr}
 \toprule
 \multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
 \cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
@@ -55,7 +55,7 @@ En la tabla \ref{tab:iess_edades_dist_rtr}
 \caption{Egresados de la EPN hasta el 31 de marzo de 2022}
 \label{tab:iess_edades_dist_rtr}
 {\fontsize{10}{12}\selectfont
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{crrrrrr}
 \toprule
 \multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
 \cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
@@ -70,8 +70,8 @@ En la tabla \ref{tab:iess_edades_dist_rtr}
 \end{center}
 \end{table}
 
-
-En la figura \ref{tab:n_imp_sexo_edad}
+\subsection{Numero de impisiciones }
+En la tabla \ref{tab:n_imp_sexo_edad}, se presentan los resultados del número de impisiciones por rangos de edad y sexo de los egresados de la EPN. 
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -86,6 +86,53 @@ En la figura \ref{tab:n_imp_sexo_edad}
 & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} \\
 \midrule
 \input{tablas/n_imp_sexo_edad.tex}
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+{\bf Elaborado:} DAIE}
+\end{center}
+\end{table}
+
+\subsection{Egresados por sector}
+En las tablas \ref{tab:n_sec_p_sexo_edad} y \ref{tab:n_sec_pr_sexo_edad}, se representan la cantidad de estudiantes por rangos de edad y sexo de egresados de la EPN, de acuerdo al sector en el que desempeñan sus actividades, ya sea el sector privado o privado respectivamente.
+
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Egresados de la EPN en el sector público hasta el 31 de marzo de 2022}
+\label{tab:n_sec_p_sexo_edad}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{lrrrrrr}
+\toprule
+\multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
+\cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
+& {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} \\
+\midrule
+\input{tablas/n_sec_p_sexo_edad.tex}
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+{\bf Elaborado:} DAIE}
+\end{center}
+\end{table}
+
+
+
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Egresados de la EPN en el sector privado hasta el 31 de marzo de 2022}
+\label{tab:n_sec_pr_sexo_edad}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{lrrrrrr}
+\toprule
+\multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
+\cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
+& {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} \\
+\midrule
+\input{tablas/n_sec_pr_sexo_edad.tex}
 \bottomrule
 \end{tabular}
 }
