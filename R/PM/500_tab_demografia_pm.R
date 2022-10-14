@@ -92,7 +92,7 @@ print( aux_xtable,
        include.rownames = FALSE,
        format.args = list( decimal.mark = ',', big.mark = '.' ),
        only.contents = TRUE,
-       hline.after = 8,
+       hline.after = 7,
        sanitize.text.function = identity )
 
 # Número de egresados en el sector público por sexo y edad ----
@@ -122,3 +122,29 @@ print( aux_xtable,
        hline.after = 7,
        sanitize.text.function = identity )
 
+# Sueldos promedio de egresados en el sector público por sexo y edad ----
+aux <- copy( sld_sec_p_sexo_edad )
+aux_xtable <- xtable(aux, digits = c( 0, 0, 2, 2, 2 , 2, 2, 2) )
+print( aux_xtable,
+       file = paste0( parametros$resultado_tablas, 'sld_sec_p_sexo_edad', '.tex' ),
+       type = 'latex',
+       include.colnames = FALSE,
+       include.rownames = FALSE,
+       format.args = list( decimal.mark = ',', big.mark = '.' ),
+       only.contents = TRUE,
+       hline.after = 7,
+       sanitize.text.function = identity )
+
+
+# Sueldo promedio de egresados en el sector privado por sexo y edad ----
+aux <- copy( sld_sec_pr_sexo_edad )
+aux_xtable <- xtable(aux, digits = c( 0, 0, 2, 2, 2 , 2, 2, 2) )
+print( aux_xtable,
+       file = paste0( parametros$resultado_tablas, 'sld_sec_pr_sexo_edad', '.tex' ),
+       type = 'latex',
+       include.colnames = FALSE,
+       include.rownames = FALSE,
+       format.args = list( decimal.mark = ',', big.mark = '.' ),
+       only.contents = TRUE,
+       hline.after = 7,
+       sanitize.text.function = identity )
