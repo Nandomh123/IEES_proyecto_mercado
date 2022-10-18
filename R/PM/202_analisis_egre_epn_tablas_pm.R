@@ -274,7 +274,7 @@ sld_sec_pr_sexo_edad[is.na(sld_sec_pr_sexo_edad)] <- 0
 sld_sec_pr_sexo_edad <- sld_sec_pr_sexo_edad[ , ST := SM + SF]
 sld_sec_pr_sexo_edad <- sld_sec_pr_sexo_edad[ , Dist_ST := 100*(ST/sum(sld_sec_pr_sexo_edad$ST))]
 # Totales
-sld_sec_pr_sexo_edad <- rbind( sld_sec_pr_sexo_edad , data.table(R_edad = 'Total', 
+sld_sec_pr_sexo_edad <- rbind( sld_sec_pr_sexo_edad,data.table(R_edad = 'Total', 
                                                                SM = c(colSums(sld_sec_pr_sexo_edad[, 2:2]) ),
                                                                Dist_SM = colSums(sld_sec_pr_sexo_edad[, 3:3] ),
                                                                SF = colSums(sld_sec_pr_sexo_edad[, 4:4] ),
@@ -283,9 +283,6 @@ sld_sec_pr_sexo_edad <- rbind( sld_sec_pr_sexo_edad , data.table(R_edad = 'Total
                                                                Dist_ST = colSums(sld_sec_pr_sexo_edad[, 7:7])))
 
 rm(sld_sec_pr_male, sld_sec_pr_female)
-
-
-
 
 
 # --------------------------------------------------------------------------------------------------

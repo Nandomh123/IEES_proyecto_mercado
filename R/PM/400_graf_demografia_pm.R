@@ -6,6 +6,8 @@ source( 'R/401_graf_plantilla.R', encoding = 'UTF-8', echo = FALSE )
 
 # Cargamos nuetra base de datos
 load( paste0( parametros$RData, 'IESS_PM_infor_egresados.RData' ) )
+load( paste0( parametros$RData, 'IESS_PM_sld_banca_seg.RData' ) )
+
 
 # Graficando población egresada por edad y sexo de la EPN --------------------------
 message( '\tGraficando población egresada por edad y sexos de la EPN' )
@@ -46,6 +48,35 @@ iess_pir_egresados
 ggsave( plot = iess_pir_egresados, 
         filename = paste0( parametros$resultado_graficos, 'iess_pir_egresados', parametros$graf_ext ),
         width = graf_width, height = graf_height, units = graf_units, dpi = graf_dpi )
+
+
+
+# Graficando sueldos de la población egresada por años de la EPN -----------------------------------
+
+y_lim <- c( 0, 3000)
+y_brk <- seq( y_lim[1], y_lim[2], by = 500 )
+y_lbl <- formatC( y_brk, digits = 0, format = 'f', big.mark = '.', decimal.mark = ',' )
+
+iess_sld_banca_seg <- ggplot(sld_banca_seg, aes(x = reorder(trabajo,-Sldo_Pro), y = Sldo_Pro)) +
+  geom_bar(stat="identity", fill = parametros$iess_green, color = "black", size = 0.3 ) +
+  scale_y_continuous( breaks = y_brk, labels = y_lbl, limits = y_lim ) +
+  theme_bw() +
+  plt_theme +
+  labs( x = '', y = 'Saldo Promedio')+
+  geom_text( aes( label = paste( '$', round( Sldo_Pro, 2 ) ) ),  
+             position = position_dodge( 0.9 ), 
+             vjust = -0.5, 
+             size = 3.5,
+             color = parametros$iess_green
+  ) 
+iess_sld_banca_seg
+
+ggsave( plot = iess_sld_banca_seg,
+        filename = paste0( parametros$resultado_graficos, 'iess_sld_banca_seg', parametros$graf_ext ),
+        width = graf_width, height = graf_height, units = graf_units, dpi = graf_dpi)
+
+
+
 #-------------------------------------------------------------------------------
 message( paste( rep('-', 100 ), collapse = '' ) )
 rm( list = ls()[ !( ls() %in% c( 'parametros' ) ) ] )

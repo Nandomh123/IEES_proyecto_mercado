@@ -4,9 +4,9 @@
 \vspace{-4em}
 
 
-\section{Prueba de las tablas y los graficos creados}
+\section{Tablas y los gráficos creados}
 
-En la figura \ref{fig:iess_pir_egresados}
+En la figura \ref{fig:iess_pir_egresados}, se presenta la distribución de los egresados de la EPN, por sexo y edad.
 
 \begin{figure}[H]
 \centering
@@ -18,9 +18,9 @@ En la figura \ref{fig:iess_pir_egresados}
             {\bf Elaborado:} DAIE.}
 \end{figure}
 
-\subsection{Primera forma de las tablas}
+\subsection{Egresados por rangos de edad y sexo}
 
-en la tabla \ref{tab:n_per_sexo_edad}
+En la tablas \ref{tab:n_per_sexo_edad} y \ref{tab:iess_edades_dist_rtr}, se presenta la cantidad de egresados por rangos de edades y sexo.
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -44,11 +44,6 @@ en la tabla \ref{tab:n_per_sexo_edad}
 \end{table}
 
 
-\subsection{Usando la plantilla Pablo}
-
-En la tabla \ref{tab:iess_edades_dist_rtr}
-
-
 \begin{table}[H]
 \captionsetup{justification=centering}
 \begin{center}
@@ -70,8 +65,8 @@ En la tabla \ref{tab:iess_edades_dist_rtr}
 \end{center}
 \end{table}
 
-\subsection{Numero de impisiciones }
-En la tabla \ref{tab:n_imp_sexo_edad}, se presentan los resultados del número de impisiciones por rangos de edad y sexo de los egresados de la EPN. 
+\subsection{Número de imposiciones }
+En la tabla \ref{tab:n_imp_sexo_edad}, se presentan los resultados del número de imposiciones por rangos de edad y sexo de los egresados de la EPN. 
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -143,7 +138,7 @@ En las tablas \ref{tab:n_sec_p_sexo_edad} y \ref{tab:n_sec_pr_sexo_edad}, se rep
 \end{table}
 
 
-\subsection{Sueldo promedio por edad y sexo }
+\subsection{Sueldo promedio por sector y por edad y sexo }
 
 En las tablas \ref{tab:sld_sec_p_sexo_edad} y \ref{tab:sld_sec_pr_sexo_edad}, se presentan el porcentaje promedio del sueldo por rangos de edad y sexo de egresados de la EPN, de acuerdo al sector en el que desempeñan sus actividades, ya sea el sector público o privado respectivamente.
 
@@ -191,3 +186,21 @@ En las tablas \ref{tab:sld_sec_p_sexo_edad} y \ref{tab:sld_sec_pr_sexo_edad}, se
 {\bf Elaborado:} DAIE}
 \end{center}
 \end{table}
+
+
+\subsection{Sueldo promedio en banca, seguros y otros }
+
+En la figura \ref{fig:iess_sld_banca_seg}, se presenta el valor del sueldo promedio de los egresados en banca , seguros y otros a marzo del 2022 
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sueldo Promedio en Banca y seguros }
+\label{fig:iess_sld_banca_seg}
+\includegraphics[scale=1]{graficos/iess_sld_banca_seg.png}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+            {\bf Elaborado:} DAIE.}
+\end{figure}
+
+
+
