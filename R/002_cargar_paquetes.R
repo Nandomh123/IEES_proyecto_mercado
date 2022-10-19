@@ -55,7 +55,8 @@ suppressPackageStartupMessages( library( maptools ) )
 suppressPackageStartupMessages( library( plotrix ) )
 suppressPackageStartupMessages( library( psych ) )
 suppressPackageStartupMessages( library( plotly ) )
-
+suppressPackageStartupMessages( library( reshape ) )
+suppressPackageStartupMessages( library( reshape2 ) )
 
 suppressMessages( loadfonts() )
 

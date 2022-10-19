@@ -190,7 +190,7 @@ En las tablas \ref{tab:sld_sec_p_sexo_edad} y \ref{tab:sld_sec_pr_sexo_edad}, se
 
 \subsection{Sueldo promedio en banca, seguros y otros }
 
-En la figura \ref{fig:iess_sld_banca_seg}, se presenta el valor del sueldo promedio de los egresados en banca , seguros y otros a marzo del 2022 
+En la tabla \ref{tab:sld_banca_seg_3_2022} y figura \ref{fig:iess_sld_banca_seg}, se presenta el valor del sueldo promedio de los egresados en banca , seguros y otros a marzo del 2022 
 
 \begin{figure}[H]
 \centering
@@ -202,5 +202,69 @@ En la figura \ref{fig:iess_sld_banca_seg}, se presenta el valor del sueldo prome
             {\bf Elaborado:} DAIE.}
 \end{figure}
 
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Sueldo promedio al 31 de marzo de 2022}
+\label{tab:sld_banca_seg_3_2022}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{lr}
+\toprule
+{\bf Trabajo} & {\bf Sueldo (USD)}\\
+\midrule
+\input{tablas/sld_banca_seg_3_2022.tex}
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+{\bf Elaborado:} DAIE}
+\end{center}
+\end{table}
 
 
+\subsection{Sueldo promedio en banca, seguros y otros por año }
+
+En la figura \ref{fig:iess_sld_banca_seg_anio} y figura \ref{tab:sld_banca_seg_anio}, se presenta el valor del sueldo promedio de los egresados en banca , seguros y otros por años a partir del 2010 al 2022.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sueldo Promedio en Banca, seguros y otros por año }
+\label{fig:iess_sld_banca_seg_anio}
+\includegraphics[scale=1]{graficos/iess_sld_banca_seg_anio.png}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+            {\bf Elaborado:} DAIE.}
+\end{figure}
+
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Sueldo promedio por año }
+\label{tab:sld_banca_seg_anio}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{crrr}
+\toprule
+{\bf Año} & {\bf Seguros} & {\bf Banca} & {\bf Otros}\\
+\midrule
+\input{tablas/sld_banca_seg_anio.tex}
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+{\bf Elaborado:} DAIE}
+\end{center}
+\end{table}
+
+\subsection{Sueldos en banca por año}
+
+En la figura \ref{fig:sld_banca_anio1}, se presenta el sueldo promedio en banca por año a partir del 2010 al 2022.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sueldo Promedio en Banca por año }
+\label{fig:sld_banca_anio1}
+\includegraphics[scale=1]{graficos/sld_banca_anio1.png}
+\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+            {\bf Elaborado:} DAIE.}
+\end{figure}

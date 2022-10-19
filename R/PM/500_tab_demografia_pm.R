@@ -3,7 +3,7 @@ message( '\tNumero de egresados de la EPN por edad y sexo' )
 
 load( paste0( parametros$RData, 'Tablas_egresados.RData' ) ) 
 load( paste0( parametros$RData, 'IESS_PM_infor_egresados.RData' ) )
-
+load( paste0( parametros$RData, 'IESS_PM_sld_banca_seg.RData' ) )
 
 # --------------------------------------------------------------------------------------------------
 # Primera forma 
@@ -147,4 +147,35 @@ print( aux_xtable,
        format.args = list( decimal.mark = ',', big.mark = '.' ),
        only.contents = TRUE,
        hline.after = 7,
+       sanitize.text.function = identity )
+
+
+# Sueldo promedio de egresados a marzo del 2022 ----
+aux <- copy( sld_banca_seg )
+setorder(aux, -Sldo_Pro )
+aux_xtable <- xtable(aux, digits = c( 0, 2, 2 ) )
+print( aux_xtable,
+       file = paste0( parametros$resultado_tablas, 'sld_banca_seg_3_2022', '.tex' ),
+       type = 'latex',
+       include.colnames = FALSE,
+       include.rownames = FALSE,
+       format.args = list( decimal.mark = ',', big.mark = '.' ),
+       only.contents = TRUE,
+       hline.after = NULL,
+       sanitize.text.function = identity )
+
+# Sueldo promedio de egresados a marzo del 2022 ----
+aux <- copy( sld_banca_seg_otros )
+aux <- as.data.table(aux)
+aux <- aux[ , list( ANIPER, Seguro, Banca, Otros)]
+aux <- aux[ , ANIPER := as.character(ANIPER) ]
+aux_xtable <- xtable(aux, digits = c( 0, 0, 2, 2, 2) )
+print( aux_xtable,
+       file = paste0( parametros$resultado_tablas, 'sld_banca_seg_anio', '.tex' ),
+       type = 'latex',
+       include.colnames = FALSE,
+       include.rownames = FALSE,
+       format.args = list( decimal.mark = ',', big.mark = '.' ),
+       only.contents = TRUE,
+       hline.after = NULL,
        sanitize.text.function = identity )
