@@ -195,7 +195,7 @@ En la tabla \ref{tab:sld_banca_seg_3_2022} y figura \ref{fig:iess_sld_banca_seg}
 \begin{figure}[H]
 \centering
 \captionsetup{justification=centering}
-\caption{Sueldo Promedio en Banca y seguros }
+\caption{Sueldo Promedio en Banca, seguros y otros en marzo de 2022 }
 \label{fig:iess_sld_banca_seg}
 \includegraphics[scale=1]{graficos/iess_sld_banca_seg.png}
 \caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
