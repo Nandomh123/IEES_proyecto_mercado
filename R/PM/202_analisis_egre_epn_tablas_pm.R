@@ -196,7 +196,11 @@ rm(n_sec_pr_male, n_sec_pr_female, piramide_edad_sexo, egresados_impo, n_sec)
 
 
 # Tabla de rangos del sueldo promedio de egresados por sector por edad y sexo ----------------------
-sld_sec <- n_sectores[ , list( sexo, edad, CODSEC, VALSUE)]
+
+sld_sec <- Egresados_EPN[ , list( sexo, CODSEC, VALSUE , fecha_nacimiento)]
+sld_sec <- sld_sec[ , edad := ( 2022 - year(fecha_nacimiento)- 1 + 1 * ( 3 > month(fecha_nacimiento) ))]
+sld_sec <- sld_sec[ VALSUE > 0]
+sld_sec <- sld_sec[ , list( sexo, CODSEC, edad, VALSUE)]
 
 # -----------------------------
 # PUBLICO 
@@ -297,3 +301,4 @@ save( list =  resultados
 message( paste( rep('-', 100 ), collapse = '' ) )
 rm( list = ls()[ !( ls() %in% c( 'parametros' ) ) ] )
 gc()
+

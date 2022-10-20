@@ -4,7 +4,7 @@ load( paste0( parametros$RData, 'IESS_PM_infor_egresados.RData' ))
 # sueldo promedio en banca y seguros ---------------------------------------------------------------
 # Creamos la variable con el tipo de empleo Banca, seguros y Otros.
 # Para ver el sueldo simplemente filtramos a partir del 2010
-banca_seg <- Egresados_EPN[ ANIPER >= 2010 ]
+banca_seg <- Egresados_EPN[ ANIPER <= 2022 ]
 banca_seg <- banca_seg[ , Tipo := substr(NOMBRE_EMPLEADOR, start = 1, stop = 5) ]
 banca_seg <- banca_seg[ Tipo == 'BANCO' | Tipo == 'COOPE' | Tipo == 'BANEC' |
                           Tipo == 'EQUIF' | NOMBRE_EMPLEADOR =='EQUIECUA ANALYTICS SERVICES OF RISK S.A.'|
@@ -24,27 +24,31 @@ banca_seg <- banca_seg[ Tipo == 'BANCO' | Tipo == 'COOPE' | Tipo == 'BANEC' |
                           NOMBRE_EMPLEADOR == 'INSTITUTO ECUATORIANO DE CREDITO EDUCATIVO Y BECAS'|
                           NOMBRE_EMPLEADOR == 'PERUZZI S.A.'|
                           NOMBRE_EMPLEADOR == 'SERVICIO DE ACREDITACION ECUATORIANO'|
-                          NOMBRE_EMPLEADOR == 'SICONTAC CENTER S.A.',
+                          NOMBRE_EMPLEADOR == 'SICONTAC CENTER S.A.'|
+                          NOMBRE_EMPLEADOR == 'COBRANZAS DEL ECUADOR S.A. RECAUDADORA'|
+                          NOMBRE_EMPLEADOR == 'SICOBRA S.A.'|
+                          NOMBRE_EMPLEADOR == 'RECAPT RECUPERACION DE CAPITAL CONTAC CENTER S.A.',
                         trabajo :=  "Banca" ]
 
 
 banca_seg <- banca_seg[ NOMBRE_EMPLEADOR == 'INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL IESS' |
                           NOMBRE_EMPLEADOR == 'SEGUROS EQUINOCCIAL S. A.' |
+                          NOMBRE_EMPLEADOR == "AFILIACION VOLUNTARIA"|
                           NOMBRE_EMPLEADOR == 'ASEGURADORA DEL SUR C. A.' |
                           NOMBRE_EMPLEADOR == 'CONFIAMED SA'|
                           NOMBRE_EMPLEADOR == 'HORIZONTES BUSINESS COMPANY S.A EN LIQUIDACION'|
                           NOMBRE_EMPLEADOR == 'MEDICINA PARA EL ECUADOR MEDIECUADOR HUMANA S.A.'|
                           NOMBRE_EMPLEADOR == 'ZURICH SEGUROS ECUADOR S.A.'|
-                          NOMBRE_EMPLEADOR == 'INSTITUTO DE SEGURIDAD SOCIAL DE LAS FUERZAS ARMADAS',
+                          NOMBRE_EMPLEADOR == 'INSTITUTO DE SEGURIDAD SOCIAL DE LAS FUERZAS ARMADAS'|
+                          NOMBRE_EMPLEADOR == 'SERVICIOS ACTUARIALES CIA LTDA'|
+                          NOMBRE_EMPLEADOR == 'ACTUARIA CONSULTORES S.A.',
                         trabajo := 'Seguro' ]
 
 
 banca_seg <- banca_seg[ NOMBRE_EMPLEADOR == "UNIVERSIDAD CENTRAL DEL ECUADOR"
                         | NOMBRE_EMPLEADOR == "INSTITUTO NACIONAL DE EFICIENCIA ENERGETICA Y ENERGIAS RENOVABLES"
                         | NOMBRE_EMPLEADOR == "ESCUELA POLITECNICA NACIONAL"
-                        | NOMBRE_EMPLEADOR == "ACTUARIA CONSULTORES S.A."
                         | NOMBRE_EMPLEADOR == "ADECCOBUSINESS S.A."
-                        | NOMBRE_EMPLEADOR == "AFILIACION VOLUNTARIA"
                         | NOMBRE_EMPLEADOR == "AGENCIA NACIONAL DE REGULACION Y CONTROL DEL TRAN"
                         | NOMBRE_EMPLEADOR == "AGESINTGESTION INTEGRAL CIA LTDA."
                         | NOMBRE_EMPLEADOR == "ALMEIDA MONTALEZA JUAN GONZALO"
@@ -228,7 +232,60 @@ banca_seg <- banca_seg[ NOMBRE_EMPLEADOR == "UNIVERSIDAD CENTRAL DEL ECUADOR"
                         | NOMBRE_EMPLEADOR == "CONSEJO NACIONAL ELECTORAL"
                         | NOMBRE_EMPLEADOR == "CORPORACION DE LA ASOCIACION DE LOS ADVENTISTAS DEL SEPTIMO DIA DEL ECUADOR"
                         | NOMBRE_EMPLEADOR == "GUERRERO TUGA ESTHER MAGDALENA"
-                        | NOMBRE_EMPLEADOR == 'EMPRESA PUBLICA METROPOLITANA DE LOGISTICA PARA LA SEGURIDAD Y LA CONVIVENCIA CIUDADANA',
+                        | NOMBRE_EMPLEADOR == 'EMPRESA PUBLICA METROPOLITANA DE LOGISTICA PARA LA SEGURIDAD Y LA CONVIVENCIA CIUDADANA'
+                        | NOMBRE_EMPLEADOR == 'SERVICIOS TEMPORARIOS S A'
+                        | NOMBRE_EMPLEADOR == 'SERPAL S C C'
+                        | NOMBRE_EMPLEADOR == 'TERAN NARVAEZ JORGE HUMBERTO'
+                        | NOMBRE_EMPLEADOR == 'MINDMARKETING CIA. LTDA.'
+                        | NOMBRE_EMPLEADOR == 'SECRETARIA TECNICA DEL MINISTERIO DE COORDINACION DE DESARROLLO SOCIAL'
+                        | NOMBRE_EMPLEADOR == 'SERVICIO INTEGRAL PARA LA INDUSTRIA ALIMENTICIA SIPIA S.A.'
+                        | NOMBRE_EMPLEADOR == '0'
+                        | NOMBRE_EMPLEADOR == 'INT NAC ESTD Y CENSOS INEC'
+                        | NOMBRE_EMPLEADOR == 'HCDA FERNANDEZ SALVADOR'
+                        | NOMBRE_EMPLEADOR == 'CORPORACION NACIONAL DE TELECOMUNICACIONES CNT S.A.'
+                        | NOMBRE_EMPLEADOR == 'SAMANIEGO VELEZ ALFREDO GONZALO'
+                        | NOMBRE_EMPLEADOR == 'JERVES VAZQUEZ HOMERO'
+                        | NOMBRE_EMPLEADOR == 'ALBAN COBOS CLARITA LUCIANA'
+                        | NOMBRE_EMPLEADOR == 'UNIDAD OPERADORA DEL SISTEMA TROLEBUS'
+                        | NOMBRE_EMPLEADOR == 'GLC ECUADOR S.A.'
+                        | NOMBRE_EMPLEADOR == 'BESTPEOPLE S.A.'
+                        | NOMBRE_EMPLEADOR == 'SOLUCION TEMPORAL CIA LTDA'
+                        | NOMBRE_EMPLEADOR == 'MOSS FERREIRA ROBERT'
+                        | NOMBRE_EMPLEADOR == 'PACIFIC TRADING PACITRA C.A.'
+                        | NOMBRE_EMPLEADOR == 'ORDONEZ VILLACRESES FERNANDO I'
+                        | NOMBRE_EMPLEADOR == 'UNIDAD DE EJECUCION ESPECIALIZADA'
+                        | NOMBRE_EMPLEADOR == 'SEGURIVITAL CIA LTDA'
+                        | NOMBRE_EMPLEADOR == 'SANCHEZ MARCO GABRIEL'
+                        | NOMBRE_EMPLEADOR == 'BRANDIM CIA. LTDA.'
+                        | NOMBRE_EMPLEADOR == 'ALBUJA DAZA ALFONSO'
+                        | NOMBRE_EMPLEADOR == 'UNIDAD EDUCATIVA SAN FRANCISCO DE SALES'
+                        | NOMBRE_EMPLEADOR == 'YANBAL ECUADOR S.A.'
+                        | NOMBRE_EMPLEADOR == 'ALBAN COBOS CLARITA LUCIANA'
+                        | NOMBRE_EMPLEADOR == 'COERH ESPECIALIZ RECURS HUMANO'
+                        | NOMBRE_EMPLEADOR == 'JERVIS GONZALEZ ANDRES'
+                        | NOMBRE_EMPLEADOR == 'FERNANDEZ SALVADOR SICLES RICA'
+                        | NOMBRE_EMPLEADOR == 'SOSERVI S.A. EN LIQUIDACION'
+                        | NOMBRE_EMPLEADOR == 'ORBISTEL S.A. EN LIQUIDACION'
+                        | NOMBRE_EMPLEADOR == 'KANTAR IBOPE MEDIA ECUADOR EC-KIM S.A.'
+                        | NOMBRE_EMPLEADOR == 'PERSONAL TEMPS CIA. LTDA.'
+                        | NOMBRE_EMPLEADOR == 'QUIMBITA UNDA SHANTALL'
+                        | NOMBRE_EMPLEADOR == 'ALARCON UTRERAS MARIA AUGUSTA'
+                        | NOMBRE_EMPLEADOR == 'LICEO MATOVELLE CONGREGACION DE MISIONEROS OBLATO'
+                        | NOMBRE_EMPLEADOR == 'APOLO CUENCA LUCILA NUEMIA'
+                        | NOMBRE_EMPLEADOR == 'HUMANFORCE MANAGEMENT CIA. LTDA'
+                        | NOMBRE_EMPLEADOR == 'ALIMENTOS Y SERVICIOS ECUATORIANOS ALISERVIS S.A.'
+                        | NOMBRE_EMPLEADOR == 'MULTICINES S.A.'
+                        | NOMBRE_EMPLEADOR == 'MULTICOBRO S.A.'
+                        | NOMBRE_EMPLEADOR == 'AMERICAN EMPLOYEE CENTER S.A. AMERIEMPLOY'
+                        | NOMBRE_EMPLEADOR == 'ACIST INTERNACIONAL, ASESORIA CONSTRUCCION, INGEN'
+                        | NOMBRE_EMPLEADOR == 'CRONIX CIA. LTDA.'
+                        | NOMBRE_EMPLEADOR == 'PROVEEDORA SUPERSONAL S.A'
+                        | NOMBRE_EMPLEADOR == 'AIRTIFICIAL INTELLIGENCE STRUCTURES S.A.'
+                        | NOMBRE_EMPLEADOR == 'EMPRESA METROPOLITANA DE ALCANTARILLADO Y AGUA POTABLE QUITO'
+                        | NOMBRE_EMPLEADOR == 'CORPSISTEM CIA LTDA'
+                        | NOMBRE_EMPLEADOR == 'ACIST INTERNACIONAL, ASESORIA CONSTRUCCION, INGENIERIA, SERVICIO TECNICO C.L.'
+                        | NOMBRE_EMPLEADOR == 'PROVEEDORA SUPERSONAL S.A.'
+                        | cedula == '1715020309',
                         trabajo := 'Otros']
 
 # Existencia de valores nulos en la nueva variable creada
@@ -259,7 +316,7 @@ sld_banca_seg <- banca_seg_3_2022[ , list(Sldo_Pro = mean(VALSUE)), by = c('trab
 
 
 # Sueldo en banca por años a partir del 2010 -------------------------------------------------------
-sld_banca_anio <- banca_seg[ !(VALSUE < 0)]
+sld_banca_anio <- banca_seg[ !(VALSUE < 0) & ANIPER >= 2010]
 sld_banca_anio <- sld_banca_anio[ , list( Sld_Pro = mean( VALSUE ) ), by = c( 'ANIPER', 'trabajo' )]
 sld_banca_seg_otros <- cast(sld_banca_anio, ANIPER ~ trabajo)
 
