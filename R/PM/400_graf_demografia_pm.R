@@ -19,6 +19,8 @@ aux[ sexo == "F", n:= -n ]
 aux[ sexo == "F", n:= n/N[1,2] ]
 aux[ sexo == "M", n:= n/N[2,2] ]
 M <- data.frame((aux[,max(abs(n),na.rm = TRUE),by=sexo])) 
+escudo1 <- readPNG("Reportes/mujer.png")
+escudo2 <- readPNG("Reportes/hombre.png")
 
 salto_y <- 2
 salto_x <- 0.02
@@ -41,7 +43,12 @@ iess_pir_egresados <- ggplot(aux, aes(x = edad, y = n, fill = sexo)) +
                              label.hjust = 0, label.vjust = 0.5)) +
   theme( legend.position = "bottom" ) +
   scale_fill_manual(values = c(parametros$iess_green, parametros$iess_blue),
-                    labels = c("Mujeres", "Hombres"))
+                    labels = c("Mujeres", "Hombres")) +
+  annotation_custom(rasterGrob(escudo1, width = 0.13, height = 0.13,
+                               just = "right", hjust = 3, vjust = -2.5)) +
+  annotation_custom(rasterGrob(escudo2, width = 0.13, height = 0.13,
+                               just = "left", hjust = -2, vjust = -2.5))
+
 
 iess_pir_egresados
 

@@ -1,12 +1,17 @@
 %---------------------------------------------------------------------------------------------------
-\chapter{Metodología}
+\chapter{Análisis del proyecto de mercado}
 \label{chp_modelo}
 \vspace{-4em}
 
+En este capítulo se examina un conjunto de datos con el propósito de obtener conclusiones más relevantes acerca de la información de los graduados en las carreras de Matemáticas e Ingeniería Matemática de la Escuela Politécnica Nacional. Para ello se realiza un análisis tabular y gráfico de las principales variables que aportan información significativa.
 
-\section{Tablas y los gráficos creados}
+\section{Análisis tabular y gráfico}
 
-En la figura \ref{fig:iess_pir_egresados}, se presenta la distribución de los egresados de la EPN, por sexo y edad.
+Para el presente estudio se considera el número de egresados de la Escuela Politécnica Nacional, en particular los Matematicos e Ingenieros Matemáticos a marzo del 2022, que es de 215 personas. No obstante, se consideran simplemente las personas que trabajan bajo dependencia, ya sea en el sector público o privado dando un total de 190 egresados.   
+
+\subsection{Número de egresados por edades y sexo}
+
+Observemos que en la figura \ref{fig:iess_pir_egresados}, se presenta la distribución de las personas por edad, donde es evidente que existen más egresadas con 25, 31 y 34 años representando el 9,67\% del total de mujeres cada una y más egresados con 28 y 34 años representando el 10,16\% y 8,59\% del total de hombres respectivamente. Además el rango de edades de los hombres está entre 23 y 49, y el de las mujeres en 24 y 45 años, estos rangos de edades son correctos ya que los estudios duran almenos 4 años.  
 
 \begin{figure}[H]
 \centering
@@ -18,9 +23,8 @@ En la figura \ref{fig:iess_pir_egresados}, se presenta la distribución de los e
             {\bf Elaborado:} DAIE.}
 \end{figure}
 
-\subsection{Egresados por rangos de edad y sexo}
 
-En la tablas \ref{tab:n_per_sexo_edad} y \ref{tab:iess_edades_dist_rtr}, se presenta la cantidad de egresados por rangos de edades y sexo.
+Por otro lado, en la tabla \ref{tab:n_per_sexo_edad}, se muestra la cantidad de egresados por rangos de edades. Notemos que 67,37\% del total son hombres y únicamente el 32,63\% son mujeres. Además, 39 de los 128 egresados hombres y 22 de las 62 egresadas mujeres se encuentran entre los 25 y 29 años, obteniedo un total de 61 egresados que representan el 32,22\% del total de los datos en ese rango de edad.  
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -43,30 +47,33 @@ En la tablas \ref{tab:n_per_sexo_edad} y \ref{tab:iess_edades_dist_rtr}, se pres
 \end{center}
 \end{table}
 
+% \begin{table}[H]
+% \captionsetup{justification=centering}
+% \begin{center}
+% \caption{Egresados de la EPN hasta el 31 de marzo de 2022}
+% \label{tab:iess_edades_dist_rtr}
+% {\fontsize{10}{12}\selectfont
+% \begin{tabular}{crrrrrr}
+% \toprule
+% \multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
+% \cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
+% & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} \\
+% \midrule
+% \input{tablas/iess_edades_dist_rtr.tex}
+% \bottomrule
+% \end{tabular}
+% }
+% \caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
+% {\bf Elaborado:} DAIE}
+% \end{center}
+% \end{table}
 
-\begin{table}[H]
-\captionsetup{justification=centering}
-\begin{center}
-\caption{Egresados de la EPN hasta el 31 de marzo de 2022}
-\label{tab:iess_edades_dist_rtr}
-{\fontsize{10}{12}\selectfont
-\begin{tabular}{crrrrrr}
-\toprule
-\multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
-\cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
-& {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} & {\bf Personas} & {\bf Porcentaje (\%)} \\
-\midrule
-\input{tablas/iess_edades_dist_rtr.tex}
-\bottomrule
-\end{tabular}
-}
-\caption*{\scriptsize {\bf Fuente:} Instituto Nacional de Estadísticas y Censos. \\
-{\bf Elaborado:} DAIE}
-\end{center}
-\end{table}
 
-\subsection{Número de imposiciones }
-En la tabla \ref{tab:n_imp_sexo_edad}, se presentan los resultados del número de imposiciones por rangos de edad y sexo de los egresados de la EPN. 
+\subsection{Número de imposiciones por edad y sexo}
+
+En la tabla \ref{tab:n_imp_sexo_edad}, se presentan los resultados del número de imposiciones por rangos de edad y sexo. Como se esperaba, existen personas con altas edades que tienen acumulado gran cantidad de aporte. Por otr lado, esxiste 13.941 aportaciones de todos los egresados hasta marzo del 2022, de los cuales el 71,00\% de estas aportaciones le pertenecen a los hombres y el 29,00\%  a las mujeres. También, del total el 83.112\% de todos estos aportes, pertenecen a los egreados que tienen edad entre 30 y 46 años. 
+
+Se esperaba que en el rango de 47 a 50 años exista la mayor cantidad de aporte, pero en este estudio solo existe el 3,72\% en este rango, esto es debido a que existen únicamente 3 hombres con edades mayores o iguales a 47 años. 
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -89,9 +96,10 @@ En la tabla \ref{tab:n_imp_sexo_edad}, se presentan los resultados del número d
 \end{center}
 \end{table}
 
-\subsection{Egresados por sector}
 
-En las tablas \ref{tab:n_sec_p_sexo_edad} y \ref{tab:n_sec_pr_sexo_edad}, se representan la cantidad de estudiantes por rangos de edad y sexo de egresados de la EPN, de acuerdo al sector en el que desempeñan sus actividades, ya sea el sector público o privado respectivamente.
+\subsection{Egresados por sector, edad y sexo}
+
+En las tablas \ref{tab:n_sec_p_sexo_edad} y \ref{tab:n_sec_pr_sexo_edad}, se representan la cantidad de estudiantes por rangos de edad y sexo, de acuerdo al sector en el que desempeñan sus actividades, ya sea en el sector público o privado respectivamente. Ahora es evidente que hasta marzo de 2022, algunos egresados ejercieron sus actividades en los dos sectores, dada esta circunstancia, el análisis tabular describe información de 278 personas.
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -114,7 +122,7 @@ En las tablas \ref{tab:n_sec_p_sexo_edad} y \ref{tab:n_sec_pr_sexo_edad}, se rep
 \end{center}
 \end{table}
 
-
+Notemos que en el sector público, de las 134 personas que ejercen sus actividades el 68,66\% son hombres y el 31,34\% son mujeres. También, el 82,61\% de hombres y el 54,76\% de las mujeres poseen edades entre 25 y 37 años.   
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -136,6 +144,9 @@ En las tablas \ref{tab:n_sec_p_sexo_edad} y \ref{tab:n_sec_pr_sexo_edad}, se rep
 {\bf Elaborado:} DAIE}
 \end{center}
 \end{table}
+
+De igual manera, en el sector privado, de las 144 personas que ejercen sus actividades el 69,44\% son hombres y el 30,56\% son mujeres. También, el 75\% de hombres y el 68,18\% de las mujeres poseen edades entre 25 y 37 años.   
+ 
 
 
 \subsection{Sueldo promedio por sector y por edad y sexo }

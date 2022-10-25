@@ -57,8 +57,7 @@ suppressPackageStartupMessages( library( psych ) )
 suppressPackageStartupMessages( library( plotly ) )
 suppressPackageStartupMessages( library( reshape ) )
 suppressPackageStartupMessages( library( reshape2 ) )
-
+suppressPackageStartupMessages( library( png ) )
 suppressMessages( loadfonts() )
-
 message( paste( rep( '-', 100 ), collapse = '' ) )
 
