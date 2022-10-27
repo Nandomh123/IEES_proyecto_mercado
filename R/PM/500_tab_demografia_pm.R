@@ -124,7 +124,7 @@ print( aux_xtable,
 
 # Sueldos promedio de egresados en el sector público por sexo y edad ----
 aux <- copy( sld_sec_p_sexo_edad )
-aux_xtable <- xtable(aux, digits = c( 0, 0, 2, 2, 2 , 2, 2, 2) )
+aux_xtable <- xtable(aux, digits = c( 0, 0, 2, 2, 2 ) )
 print( aux_xtable,
        file = paste0( parametros$resultado_tablas, 'sld_sec_p_sexo_edad', '.tex' ),
        type = 'latex',

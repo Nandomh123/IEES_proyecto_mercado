@@ -159,12 +159,12 @@ En las tablas \ref{tab:sld_sec_p_sexo_edad} y \ref{tab:sld_sec_pr_sexo_edad}, se
 \begin{center}
 \caption{Sueldo promedio de egresados de la EPN en el sector público hasta el 31 de marzo de 2022}
 \label{tab:sld_sec_p_sexo_edad}
-{\fontsize{9}{10}\selectfont
-\begin{tabular}{lrrrrrr}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{l|rrrrrr}
 \toprule
-\multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
-\cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
-& {\bf Sueldo (USD)} & {\bf Porcentaje (\%)} & {\bf Sueldo (USD)} & {\bf Porcentaje (\%)} & {\bf Sueldo (USD)} & {\bf Porcentaje (\%)} \\
+\multirow{2}[0]{*}{{\bf Rangos:}} & {\bf Masculino} & {\bf Femenino} & {\bf Total}\\
+\cmidrule(r){2-2} \cmidrule(r){3-3}\cmidrule(r){4-4}
+& {\bf Sueldo (USD)} &  {\bf Sueldo (USD)} & {\bf Sueldo (USD)} \\
 \midrule
 \input{tablas/sld_sec_p_sexo_edad.tex}
 \bottomrule
@@ -175,7 +175,10 @@ En las tablas \ref{tab:sld_sec_p_sexo_edad} y \ref{tab:sld_sec_pr_sexo_edad}, se
 \end{center}
 \end{table}
 
+En la tabla \ref{tab:sld_sec_p_sexo_edad}, se detalla el promedio del salario para cada egresado por rango de edades, en ella se observa que el salario de las egresadas se encuentra en concordancia con la jerarquía de experiencia laboral; es decir, mientras más años de experiencia tienen más sueldo ganan, caso contrario ocurre con los egresados ya que se corrobora que el mayor sueldo promedio es de \$1.869,48 el cual pertenece a los que tienen entre 34 y 37 años, además, hasta los 33 años se mantiene la jerarquía de experiencia laboral.  
 
+
+asimismo, promedio del sueldo mensual tanto de hombres como de mujeres son idéntico, existe una pequeña diferencia a favor de los egresados de \$1,43, lo cual no es muy significativo debido a los altos sueldos promedios. 
 
 \begin{table}[H]
 \captionsetup{justification=centering}
