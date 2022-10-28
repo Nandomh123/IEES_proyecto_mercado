@@ -178,7 +178,7 @@ En las tablas \ref{tab:sld_sec_p_sexo_edad} y \ref{tab:sld_sec_pr_sexo_edad}, se
 En la tabla \ref{tab:sld_sec_p_sexo_edad}, se detalla el promedio del salario para cada egresado por rango de edades, en ella se observa que el salario de las egresadas se encuentra en concordancia con la jerarquía de experiencia laboral; es decir, mientras más años de experiencia tienen más sueldo ganan, caso contrario ocurre con los egresados ya que se corrobora que el mayor sueldo promedio es de \$1.869,48 el cual pertenece a los que tienen entre 34 y 37 años, además, hasta los 33 años se mantiene la jerarquía de experiencia laboral.  
 
 
-asimismo, promedio del sueldo mensual tanto de hombres como de mujeres son idéntico, existe una pequeña diferencia a favor de los egresados de \$1,43, lo cual no es muy significativo debido a los altos sueldos promedios. 
+Asimismo, el promedio del sueldo mensual tanto de hombres como de mujeres son idéntico, existe una pequeña diferencia a favor de los egresados de \$1,43, lo cual no es muy significativo debido a los altos sueldos promedios. 
 
 \begin{table}[H]
 \captionsetup{justification=centering}
