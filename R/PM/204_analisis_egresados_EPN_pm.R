@@ -62,12 +62,47 @@ Egresados_epn_inf <- Egresados_epn_inf[ val_sueldo > 0]
 
 # Sueldos promedios
 Egresados_epn_inf_sueldo_promedio <- Egresados_epn_inf[ , list( Suma_Suel = sum(val_sueldo) ), 
-                                                        by = c( 'Meses_Apor', 'cedula' )]
+                                                        by = c( 'Meses_Apor', 'cedula' ) ]
 
-Egresados_epn_informacion <- Egresados_epn_inf_sueldo_promedio[ ,list( Prom_Sueldo = mean( Suma_Suel ),
-                                                                       N = uniqueN( cedula )), 
-                                                                by = c( 'Meses_Apor')]
 
-ggplot(data = Egresados_epn_informacion, aes( x = Meses_Apor, y = Prom_Sueldo)) + 
+# --------------------------------------------------------------------------------------------------
+# Sueldos Anios
+# --------------------------------------------------------------------------------------------------
+Sueldos_anios <- Sueldos_anios[ , list( MES, DOLARES) ]
+Sueldos_anios[ , Anio := substr( MES, start = 1, stop = 4 )  ]
+Sueldos_anios[ , Mes := substr( MES, start = 5, stop = 6) ]
+Sueldos_anios[ , dia := 1]
+Sueldos_anios[ , Fecha := paste0( Anio, '/', Mes, '/', dia ) ]
+Sueldos_anios[ , Fecha := as.Date( Fecha, format = "%Y/%m/%d" )]
+Sueldos_anios <- Sueldos_anios[ , list( Fecha, DOLARES ) ]
+Sueldos_anios <- Sueldos_anios[ Fecha >= '2003-01-01' ]
+
+Base_Sueld <- left_join( as.data.frame( Egresados_epn_inf_sueldo_promedio ), 
+                            as.data.frame( Egresados_epn_inf ),
+                            by = c( 'cedula', 'Meses_Apor' ), all.y = TRUE )
+# Eliminamos Duplicados
+Base_Sueld <- as.data.table( Base_Sueld )
+Base_Sueld <- Base_Sueld[ !duplicated( Base_Sueld, 
+                                       by = c('cedula', 'Meses_Apor'), 
+                                       fromLast = TRUE ) ]
+
+Base_Sueld <- Base_Sueld[ , list( Meses_Apor, cedula, Suma_Suel, Fecha = Fecha_1, sexo ) ]
+
+# Unio de LAs bases de datos
+Base_Sueldos <- left_join( as.data.frame( Sueldos_anios ), 
+                           as.data.frame( Base_Sueld ),
+                         by = c( 'Fecha' ), all.x = TRUE )
+Base_Sueldos <- as.data.table( Base_Sueldos )
+Base_Sueldos[ , Sueldo_min := Suma_Suel/DOLARES ]
+
+Egresados_epn_informacion <- Base_Sueldos[ ,list( Prom_Sueldo = mean( Sueldo_min),
+                                                  N = uniqueN( cedula ) ), 
+                                                  by = c( 'Meses_Apor') ]
+
+
+
+
+
+ggplot(data = Egresados_epn_informacion, aes( x = Meses_Apor, y = Prom_Sueldo ) ) + 
   geom_line() + theme_bw() + theme( legend.position = "none" ) 
   
