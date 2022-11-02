@@ -160,7 +160,7 @@ En las tablas \ref{tab:sld_sec_p_sexo_edad} y \ref{tab:sld_sec_pr_sexo_edad}, se
 \caption{Sueldo promedio de egresados de la EPN en el sector público hasta el 31 de marzo de 2022}
 \label{tab:sld_sec_p_sexo_edad}
 {\fontsize{10}{12}\selectfont
-\begin{tabular}{l|rrrrrr}
+\begin{tabular}{l|rrrr}
 \toprule
 \multirow{2}[0]{*}{{\bf Rangos:}} & {\bf Masculino} & {\bf Femenino} & {\bf Total}\\
 \cmidrule(r){2-2} \cmidrule(r){3-3}\cmidrule(r){4-4}
@@ -185,12 +185,12 @@ Asimismo, el promedio del sueldo mensual tanto de hombres como de mujeres son id
 \begin{center}
 \caption{Sueldo promedio de egresados de la EPN en el sector privado hasta el 31 de marzo de 2022}
 \label{tab:sld_sec_pr_sexo_edad}
-{\fontsize{9}{10}\selectfont
-\begin{tabular}{lrrrrrr}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{l|rrrr}
 \toprule
-\multirow{2}[0]{*}{{\bf Rangos:}} & \multicolumn{2}{ c }{{\bf Masculino}} & \multicolumn{2}{ c }{{\bf Femenino}} &\multicolumn{2}{ c }{{\bf Total}}\\
-\cmidrule(r){2-3} \cmidrule(r){4-5}\cmidrule(r){6-7}
-& {\bf Sueldo (USD)} & {\bf Porcentaje (\%)} & {\bf Sueldo (USD)} & {\bf Porcentaje (\%)} & {\bf Sueldo (USD)} & {\bf Porcentaje (\%)} \\
+\multirow{2}[0]{*}{{\bf Rangos:}} & {\bf Masculino} & {\bf Femenino} & {\bf Total}\\
+\cmidrule(r){2-2} \cmidrule(r){3-3}\cmidrule(r){4-4}
+& {\bf Sueldo (USD)} &  {\bf Sueldo (USD)} & {\bf Sueldo (USD)} \\
 \midrule
 \input{tablas/sld_sec_pr_sexo_edad.tex}
 \bottomrule
@@ -201,10 +201,11 @@ Asimismo, el promedio del sueldo mensual tanto de hombres como de mujeres son id
 \end{center}
 \end{table}
 
+De la tabla \ref{tab:sld_sec_pr_sexo_edad}, observamos que las egresadas y egresados no siguen la jerarquía laboral en el sector privado, ademas la diferencia entre los promedios de los sueldos si es significativa, con un valor de \$ 214,86 a favor de los egresados.
 
 \subsection{Sueldo promedio en banca, seguros y otros }
 
-En la tabla \ref{tab:sld_banca_seg_3_2022} y figura \ref{fig:iess_sld_banca_seg}, se presenta el valor del sueldo promedio de los egresados en banca , seguros y otros a marzo del 2022 
+En la tabla \ref{tab:sld_banca_seg_3_2022} y figura \ref{fig:iess_sld_banca_seg}, se presenta el valor del sueldo promedio de los egresados en Banca , Seguros y Otros, solo en la fecha de marzo del 2022. Claramente se corrobora que el sueldo promedio de los estudiantes que se dedican a actividades en los Seguros ( \$2.461,56 ) es mucho mayor a los sueldos promedios en Banca ( \$1.826,95 ). Esto nos da una idea de que los trabajos en Seguros son mejores pagados en en estas fechas, además, existe una diferencia de \$634,61  a favor de los que trabajan en Seguros, este valor respresenta aproximadamente el 1.5 del sueldo básico en marzo de 2022 ( \$400 ).
 
 \begin{figure}[H]
 \centering
@@ -238,7 +239,7 @@ En la tabla \ref{tab:sld_banca_seg_3_2022} y figura \ref{fig:iess_sld_banca_seg}
 
 \subsection{Sueldo promedio en banca, seguros y otros por año }
 
-En la figura \ref{fig:iess_sld_banca_seg_anio} y figura \ref{tab:sld_banca_seg_anio}, se presenta el valor del sueldo promedio de los egresados en banca , seguros y otros por años a partir del 2010 al 2022.
+En la figura \ref{fig:iess_sld_banca_seg_anio} y figura \ref{tab:sld_banca_seg_anio}, se presenta el valor del sueldo promedio en Banca , Seguros y Otros por años, a partir del 2010 al 2022.
 
 \begin{figure}[H]
 \centering
@@ -268,6 +269,8 @@ En la figura \ref{fig:iess_sld_banca_seg_anio} y figura \ref{tab:sld_banca_seg_a
 {\bf Elaborado:} DAIE}
 \end{center}
 \end{table}
+
+Se observa que los sueldos promedios en Banca a partir del 2010 al 2019, han ido creciendo, alcanzado un máximo de \$2.193,21. A partir del 2019 al 2021 el sueldo fue bajando hasta alcanzar \$1.817,81; es decir en en 2 años el sueldo bajo \$375.4, esto puede ser por causa de la pandemia que sacudió al pais en el 2019. Sin embargo, los sueldos promedios en los Seguros a partir del 2017 hasta la fecha han ido en constante crecimiento, ya que a partir de este año la cantidad de fallecidos aumento demasiado y también es debido a la pandemia, alcanzado un sueldo máximo de \$2.299,25 en el año 2022.    
 
 \subsection{Sueldos en banca por año}
 

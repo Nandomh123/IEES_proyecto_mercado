@@ -258,7 +258,6 @@ sld_sec_pr_male[ edad <= 46 & edad >= 42, R_edad := '$[42,46]$' ]
 sld_sec_pr_male[ edad <= 50 & edad >= 47, R_edad := '$[47,50]$' ]
 setorder(sld_sec_pr_male, edad)
 sld_sec_pr_male <- sld_sec_pr_male[ , list(SM = mean(VALSUE)), by = c('R_edad')]
-sld_sec_pr_male <- sld_sec_pr_male[ , Dist_SM := 100*(SM/sum(sld_sec_pr_male$SM)) ]
 # female -------
 sld_sec_pr_female <- sld_sec[ sexo == 'F' &  CODSEC == 'R' ]
 sld_sec_pr_female[ edad <= 24, R_edad := '$[21,24]$' ]
@@ -270,20 +269,19 @@ sld_sec_pr_female[ edad <= 46 & edad >= 42, R_edad := '$[42,46]$' ]
 sld_sec_pr_female[ edad <= 50 & edad >= 47, R_edad := '$[47,50]$' ]
 setorder(sld_sec_pr_female, edad)
 sld_sec_pr_female <- sld_sec_pr_female[ , list(SF = mean(VALSUE)), by = c('R_edad')]
-sld_sec_pr_female <- sld_sec_pr_female[ , Dist_SF := 100*(SF/sum(sld_sec_pr_female$SF)) ]
 # Total -------
 sld_sec_pr_sexo_edad <- merge(sld_sec_pr_male, sld_sec_pr_female, all.x = TRUE, by = c('R_edad') )
 sld_sec_pr_sexo_edad[is.na(sld_sec_pr_sexo_edad)] <- 0
 sld_sec_pr_sexo_edad <- sld_sec_pr_sexo_edad[ , ST := SM + SF]
-sld_sec_pr_sexo_edad <- sld_sec_pr_sexo_edad[ , Dist_ST := 100*(ST/sum(sld_sec_pr_sexo_edad$ST))]
+
 # Totales
-sld_sec_pr_sexo_edad <- rbind( sld_sec_pr_sexo_edad,data.table(R_edad = 'Total', 
-                                                               SM = c(colSums(sld_sec_pr_sexo_edad[, 2:2]) ),
-                                                               Dist_SM = colSums(sld_sec_pr_sexo_edad[, 3:3] ),
-                                                               SF = colSums(sld_sec_pr_sexo_edad[, 4:4] ),
-                                                               Dist_SF = colSums(sld_sec_pr_sexo_edad[, 5:5] ),
-                                                               ST = colSums(sld_sec_pr_sexo_edad[, 6:6] ),
-                                                               Dist_ST = colSums(sld_sec_pr_sexo_edad[, 7:7])))
+
+# Totales
+sld_sec_pr_sexo_edad[sld_sec_pr_sexo_edad==0] <- NA
+sld_sec_pr_sexo_edad <- rbind( sld_sec_pr_sexo_edad , data.table( R_edad = '{\\bf Promedio}', 
+                                                                  SM = c(colMeans(sld_sec_pr_sexo_edad[, 2:2]) ),
+                                                                  SF = colMeans(sld_sec_pr_sexo_edad[, 3:3],na.rm = T ),
+                                                                  ST = colMeans(sld_sec_pr_sexo_edad[, 4:4] )))
 
 rm(sld_sec_pr_male, sld_sec_pr_female)
 

@@ -61,7 +61,7 @@ Egresados_epn_inf <- Egresados_epn_inf[ Fecha_1 >= '2003-01-01' ]
 Egresados_epn_inf <- Egresados_epn_inf[ val_sueldo > 0]
 
 # Sueldos promedios
-Egresados_epn_inf_sueldo_promedio <- Egresados_epn_inf[ , list( Suma_Suel = sum(val_sueldo) ), 
+Egresados_epn_inf_sueldo_promedio <- Egresados_epn_inf[ , list( Suma_Suel = sum( val_sueldo ) ), 
                                                         by = c( 'Meses_Apor', 'cedula' ) ]
 
 
@@ -95,14 +95,55 @@ Base_Sueldos <- left_join( as.data.frame( Sueldos_anios ),
 Base_Sueldos <- as.data.table( Base_Sueldos )
 Base_Sueldos[ , Sueldo_min := Suma_Suel/DOLARES ]
 
-Egresados_epn_informacion <- Base_Sueldos[ ,list( Prom_Sueldo = mean( Sueldo_min),
+Egresados_epn_informacion <- Base_Sueldos[ ,list( Prom_Sueldo = mean( Sueldo_min ),
                                                   N = uniqueN( cedula ) ), 
                                                   by = c( 'Meses_Apor') ]
 
 
+# --------------------------------------------------------------------------------------------------
+# Sueldo por sectores
+# --------------------------------------------------------------------------------------------------
+
+Egresados_epn_inf_sector <- Egresados_epn_inf[ , list( Suma_Suel = sum( val_sueldo ) ),
+                                               by = c( 'Meses_Apor', 'cedula', 'cod_sector' ) ]
+
+Egresados_epn_inf_sld_sector <- left_join( as.data.frame( Egresados_epn_inf_sector ), 
+                                         as.data.frame( Egresados_epn_inf ), 
+                                         by = c( 'Meses_Apor', 'cedula', 'cod_sector' ),
+                                         all.y = TRUE )
+
+# Eliminamos Duplicados
+Base_Sueld_sector <- as.data.table( Egresados_epn_inf_sld_sector )
+Base_Sueld_sector <- Base_Sueld_sector[ !duplicated(Base_Sueld_sector, 
+                                       by = c( 'cedula', 'Meses_Apor', 'cod_sector' ), 
+                                       fromLast = TRUE ) ]
+
+Base_Sueld_sector <- Base_Sueld_sector[ , list( Meses_Apor, cedula, Suma_Suel, Fecha = Fecha_1, 
+                                                sexo, cod_sector ) ]
+
+# Unio de LAs bases de datos
+Base_Sueld_sector <- left_join( as.data.frame( Sueldos_anios ), 
+                                as.data.frame( Base_Sueld_sector ),
+                                by = c( 'Fecha' ), all.x = TRUE )
+
+Base_Sueld_sector <- as.data.table( Base_Sueld_sector )
+Base_Sueld_sector[ , Sueldo_min := Suma_Suel/DOLARES ]
+Egresados_epn_informacion_sectores <- Base_Sueld_sector[ ,list( Prom_Sueldo = mean( Sueldo_min ),
+                                                        N = uniqueN( cedula ) ), 
+                                                        by = c( 'Meses_Apor', 'cod_sector' ) ]
 
 
 
-ggplot(data = Egresados_epn_informacion, aes( x = Meses_Apor, y = Prom_Sueldo ) ) + 
-  geom_line() + theme_bw() + theme( legend.position = "none" ) 
+# --------------------------------------------------------------------------------------------------
+# Guardamos en un RData
+# --------------------------------------------------------------------------------------------------
+resultados <- c( "Egresados_epn_informacion", "Egresados_epn_informacion_sectores" )
+save( list =  resultados
+      , file = paste0( parametros$RData, 'IESS_PM_Analisis_II.RData' ) )
+
+# --------------------------------------------------------------------------------------------------
+message( paste( rep('-', 100 ), collapse = '' ) )
+rm( list = ls()[ !( ls() %in% c( 'parametros' ) ) ] )
+gc()
+
   
